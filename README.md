@@ -21,4 +21,4 @@ Building my database has proven to be difficult with SQL workbench. I had multip
 
 ### DB Schema
 
-![Alt text](Users/SD/Java/EventTracker/DB/jobtrackerschema.jpg?raw=true "Title")
+![Alt text](jobtrackerschema.jpg)
