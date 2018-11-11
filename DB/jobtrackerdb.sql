@@ -44,7 +44,7 @@ CREATE TABLE IF NOT EXISTS `company` (
   `description` VARCHAR(300) NULL,
   `benefits` VARCHAR(400) NULL,
   `address` VARCHAR(120) NULL,
-  `phone_number` VARCHAR(12) NULL,
+  `phone_number` VARCHAR(15) NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB;
 
