@@ -4,14 +4,14 @@
 This project idea was thought up to improve my simple excel while searching for job, as well as give my fellow class mates an easy yet helpful tool.
 
 ### Technologies used:
--MYSQL
--Java
--PostMan
--RESTful services
--JPA
--Hibernate
--Spring Boot
--GitHub
+* MYSQL
+* Java
+* PostMan
+* RESTful services
+* JPA
+* Hibernate
+* Spring Boot
+* GitHub
 
 ### Lessons learned:
 
@@ -22,3 +22,31 @@ Building my database has proven to be difficult with SQL workbench. I had multip
 ### DB Schema
 
 ![Alt text](SD/Java/EventTracker/DB/jobtrackerschema.jpg?raw=true "Title")
+
+
+### Routes:
+Company Routes:
+
+* Index
+/api/companies
+* Show
+/api/companies/1
+* Post
+/api/companies
+* Patch
+/api/companies/2
+* Delete
+/api/companies/4
+
+Job Routes:
+
+* Index
+/api/jobs 
+* Show
+/api/jobs/1
+* Post
+/api/jobs
+* Patch
+/api/jobs/1
+* Delete
+/api/jobs/4
