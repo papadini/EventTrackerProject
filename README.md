@@ -21,6 +21,7 @@ Building my database has proven to be difficult with SQL workbench. I had multip
 
 ### DB Schema
 
+<<<<<<< HEAD
 ![Alt text](SD/Java/EventTracker/DB/jobtrackerschema.jpg?raw=true "Title")
 
 
@@ -50,3 +51,6 @@ Job Routes:
 /api/jobs/1
 * Delete
 /api/jobs/4
+=======
+![Alt text](jobtrackerschema.jpg)
+>>>>>>> 688add9b6c05e195fdf61905ac1894ac617f2d5b
