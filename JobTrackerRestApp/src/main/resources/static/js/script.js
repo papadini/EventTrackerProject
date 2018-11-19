@@ -18,6 +18,8 @@ function init() {
 		event.preventDefault();
 		let form = event.target.parentElement;
 		console.log(event.target);
+		var compId = document.newJobForm.compId.value;
+		console.log(compId);
 
 		let job = {
 			position : form.position.value,
@@ -29,7 +31,7 @@ function init() {
 
 		}
 		console.log(job);
-		submitNewJob(job);
+		submitNewJob(job, compId);
 	});
 
 	document.newCompForm.submit.addEventListener('click', function(event) {
@@ -57,14 +59,20 @@ function init() {
 	document.jobForm.seeAllComp.addEventListener('click', function(event) {
 		event.preventDefault();
 		getAllCompanies();
+		
+	
 	});
+	
+
 
 }// init function end
 
-function submitNewJob(job) {
+
+
+function submitNewJob(job, compId ) {
 	let xhr = new XMLHttpRequest();
 	let jobJson = JSON.stringify(job);
-	xhr.open('POST', 'api/jobs');
+	xhr.open('POST', 'api/companies/' + compId + '/jobs');
 	xhr.setRequestHeader('Content-type', 'application/json');// specify JSON
 	// req body
 	xhr.onreadystatechange = function() {
@@ -169,7 +177,7 @@ function displayJob(job) {
 	jobData.textContent = '';
 
 	let h2 = document.createElement('h2');
-	h2.textContent = job.position + " ID: " + job.id;
+	h2.textContent = job.position ;
 	jobData.appendChild(h2);
 
 	let ul1 = document.createElement('ul');
@@ -255,7 +263,15 @@ function displayAllJobs(jobs) {
 	let phoneCol = document.createElement('th');
 	phoneCol.textContent = 'Contact';
 	row1.appendChild(phoneCol);
-
+	
+	let offered = document.createElement('th');
+	offered.textContent = 'Offered Job';
+	row1.appendChild(offered);
+	
+	let editTH = document.createElement('th');
+	editTH .textContent = 'Edit';
+	row1.appendChild(editTH);
+	
 	table.appendChild(row1);
 
 	// table info
@@ -287,6 +303,22 @@ function displayAllJobs(jobs) {
 		let phone = document.createElement('td');
 		phone.textContent = jobs[i].company.phoneNumber;
 		row.appendChild(phone);
+		
+		let offer = document.createElement('td');
+		offer.textContent = jobs[i].offerd;
+		row.appendChild(offer);
+		
+		let editTH = document.createElement('td');
+		let formbt = document.createElement('form');
+		formbt.id = 'editbutton';
+		let bt = document.createElement('button');
+		bt.type = 'submit';
+		bt.name = 'edit';
+		bt.innerHTML = 'Edit';
+		bt.value = jobs[i].id;
+		formbt.appendChild(bt);
+		editTH.appendChild(formbt);
+		row.appendChild(editTH);
 
 		table.appendChild(row);
 
@@ -295,6 +327,11 @@ function displayAllJobs(jobs) {
 	jobData.appendChild(table);
 	let br = document.createElement('br');
 	jobData.appendChild(br);
+	
+	document.getElementById('editbutton').edit.addEventListener('click', function(event){
+		event.preventDefault();
+		console.log('test');
+	});
 
 } // end displayall jobs
 
@@ -322,6 +359,10 @@ function displayAllCompanies(comps) {
 	let contactTH = document.createElement('th');
 	contactTH.textContent = 'Contact';
 	row1.appendChild(contactTH);
+	
+	let editTH = document.createElement('th');
+	editTH .textContent = 'Edit';
+	row1.appendChild(editTH);
 
 	table.appendChild(row1);
 
@@ -345,11 +386,56 @@ function displayAllCompanies(comps) {
 		contactTD.textContent = comps[i].phoneNumber;
 		row.appendChild(contactTD);
 		table.appendChild(row);
+		
+		let editTH = document.createElement('td');
+		let formbt = document.createElement('form');
+		formbt.id = 'editbutton';
+		let bt = document.createElement('button');
+		bt.type = 'submit';
+		bt.name = 'edit';
+		bt.innerHTML = 'Edit';
+		bt.value = comps[i].id;
+		formbt.appendChild(bt);
+		editTH.appendChild(formbt);
+		row.appendChild(editTH);
+		let company = comps[i];
+		
+		
 
 	}// end for loop
 
 	companyData.appendChild(table);
 	let br = document.createElement('br');
 	companyData.appendChild(br);
+	
+	document.getElementById('editbutton').edit.addEventListener('click', function(event){
+		event.preventDefault();
+		
+		editComp(event.target.value);
+	});
 
+}
+
+function editComp( compId ){
+	
+	
+	let compEdit = document.getElementById('compEdit');
+	let h3 = document.createElement('h3');
+	h3.textContent = 'Edit Company';
+	compEdit.appendChild(h3);
+	let editForm = document.createElement('form');
+	editForm.name = 'editcompForm';
+	editForm.textContent ='Company Name: ';
+	let name = document.createElement('input');
+	name.type ='text';
+	name.name ='name';
+	name.value= '';
+	editForm.appendChild(name);
+	compEdit.appendChild(editForm);
+	
+	
+	
+	
+	
+	
 }

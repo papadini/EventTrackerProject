@@ -67,9 +67,10 @@ public class JobController {
 		@PostMapping("companies/{id}/jobs")
 		public String createJob( @RequestBody Job job, @PathVariable("id") Integer id) {
 			
-			js.createJobWithCompId(job, id);
+			Job newJob = js.createJobWithCompId(job, id);
+			String responseBody = "" +  newJob.getId();
 			
-			return "";
+			return responseBody;
 		}
 		
 		//PATCH
