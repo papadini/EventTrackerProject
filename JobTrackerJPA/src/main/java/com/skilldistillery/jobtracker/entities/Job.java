@@ -33,7 +33,7 @@ public class Job {
 	
 	
 	@Column(name="job_offer")
-	private Boolean offerd;
+	private Boolean offered;
 	
 	@CreationTimestamp
 	private Date created;
@@ -87,11 +87,11 @@ public class Job {
 	}
 
 	public Boolean getOfferd() {
-		return offerd;
+		return offered;
 	}
 
 	public void setOfferd(Boolean offerd) {
-		this.offerd = offerd;
+		this.offered = offerd;
 	}
 
 	public Date getCreated() {
@@ -144,21 +144,21 @@ public class Job {
 		StringBuilder builder = new StringBuilder();
 		builder.append("Job [id=").append(id).append(", position=").append(position).append(", applied=")
 				.append(applied).append(", interviewNotes=").append(interviewNotes).append(", salary=").append(salary)
-				.append(", offerd=").append(offerd).append(", created=").append(created).append(", company=")
+				.append(", offerd=").append(offered).append(", created=").append(created).append(", company=")
 				.append(company).append("]");
 		return builder.toString();
 	}
 	
 	
 	// CONTRUCTOR WITH FIELDS
-	public Job(String position, Boolean applied, String interviewNotes, Double salary, Boolean offerd, Date created,
+	public Job(String position, Boolean applied, String interviewNotes, Double salary, Boolean offered, Date created,
 			Company company) {
 		super();
 		this.position = position;
 		this.applied = applied;
 		this.interviewNotes = interviewNotes;
 		this.salary = salary;
-		this.offerd = offerd;
+		this.offered = offered;
 		this.created = created;
 		this.company = company;
 	}

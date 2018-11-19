@@ -52,7 +52,8 @@ public class JobServiceImpl implements JobService {
 	@Override
 	public Job create(Job job) {
 
-		Optional<Company> opt = cRepo.findById(job.getCompany().getId());
+		//Optional<Company> opt = cRepo.findById(job.getCompany().getId());
+		Optional<Company> opt = cRepo.findById(1);
 		Company comp = opt.get();
 		job.setCompany(comp);
 

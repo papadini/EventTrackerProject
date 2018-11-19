@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Job Tracker</title>
+<script type="text/javascript" src="js/script.js"></script>
+<style type="text/css">
+table, th, td, tr {
+	border: 2px solid black;
+	border-collapse: collapse;
+}
+
+th, td {
+	padding: 15px;
+}
+</style>
+</head>
+<body>
+	<h1>Job Tracker</h1>
+
+
+	<form name="jobForm">
+		<input type="number" name="jobId">
+		<button name="lookup">Find Job by Id</button>
+		<br> <br>
+		<button name="seeAll">Display jobs</button>
+		<button name="seeAllComp">Display Companies</button>
+	</form>
+	<h2>Job Info</h2>
+	<div id="output">
+		<div id="jobData"></div>
+		<div id="companyData"></div>
+	</div>
+
+
+
+	<form name="newJobForm">
+		Position: <input type="text" name="position" value=''><br>
+		Applied?: <input type="text" name="applied" value=''><br>
+		Interview Notes: <input type="text" name="interviewNotes" value=''><br>
+		Salary: <input type="number" name="salary" value=''><br>
+		Offered?: <input type="text" name="offered" value=''><br>
+		Date: <input type="text" name="date" value='' placeHolder="yyyy-mm-dd"><br>
+		Company Id: <input type="number" name="compId" value=''><br>
+
+		<button type="submit" name="submit" value="submit">Add Job</button>
+	</form>
+	<br>
+	<br>
+
+	<form name="newCompForm">
+		Company: <input type="text" name="name" value=''><br>
+		Description: <input type="text" name="description" value=''><br>
+		Benefits: <input type="text" name="benefits" value=''><br>
+		Address: <input type="text" name="address" value=''><br>
+		Phone Number: <input type="text" name="phoneNumber" value=''><br>
+
+		<button type="submit" name="submit" value="submit">Add
+			Company</button>
+	</form>
+
+
+
+
+</body>
+</html>

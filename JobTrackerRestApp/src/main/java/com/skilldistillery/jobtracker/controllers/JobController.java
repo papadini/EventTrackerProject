@@ -2,6 +2,8 @@ package com.skilldistillery.jobtracker.controllers;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletResponse;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -54,11 +56,12 @@ public class JobController {
 		
 		//CREATE JOB 
 		@PostMapping("jobs")
-		public String createJobAndComp( @RequestBody Job job) {
+		public String createJobAndComp( @RequestBody Job job, HttpServletResponse res) {
 			
-			js.create(job);
+			Job newJob = js.create(job);
+			String responseBody = "" +  newJob.getId();
 			
-			return "";
+			return responseBody;
 		}
 		//CREATE JOB WITH COMPANY ID
 		@PostMapping("companies/{id}/jobs")
